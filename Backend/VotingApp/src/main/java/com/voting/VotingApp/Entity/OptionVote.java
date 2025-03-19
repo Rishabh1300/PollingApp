@@ -1,26 +1,25 @@
 package com.voting.VotingApp.Entity;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
 
 @Embeddable
 public class OptionVote {
-    private String voteOption;
+    private String optionText;
     private Long voteCount=0L;
 
     public OptionVote(){}
 
-    public OptionVote(String voteOption, Long voteCount) {
-        this.voteOption = voteOption;
+    public OptionVote(String optionText, Long voteCount) {
+        this.optionText = optionText;
         this.voteCount = voteCount;
     }
 
-    public String getVoteOption() {
-        return voteOption;
+    public String getOptionText() {
+        return optionText;
     }
 
-    public void setVoteOption(String voteOption) {
-        this.voteOption = voteOption;
+    public void setOptionText(String optionText) {
+        this.optionText = optionText;
     }
 
     public Long getVoteCount() {

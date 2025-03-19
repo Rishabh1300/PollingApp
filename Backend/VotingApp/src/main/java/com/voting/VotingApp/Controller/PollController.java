@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/polls")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class PollController {
 
     @Autowired
@@ -36,13 +37,14 @@ public class PollController {
         pollService.deleteByPollId(id);
     }
 
-//    @PutMapping("/put/{id}")
-//    public Poll changePoll
 
     @PostMapping("/vote")
     public void vote(@RequestBody Vote vote){
         pollService.vote(vote.getPollId(),vote.getOptionIndex());
     }
 
-
+    @PutMapping("/change/{id}")
+    public Poll changePollById(@PathVariable(name = "id") Long id, @RequestBody Poll newpoll){
+        return pollService.changePollById(id, newpoll);
+    }
 }
